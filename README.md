@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+    ReactJS is a library developed by the team at Facebook for building user interfaces. The DOM is hard to work with, so React has made it simpler. It also helps things to load much faster because React codes the interaction with the DOM in the simplest way possible.
+
 - [ ] What does it mean to _think_ in react?
+
+    Thinking in React is following a set of steps set up by the developers of React. The steps are: 1) break the UI into a component hierarchy (like components and subcomponents), 2) build a static version in React (this is the easy part -- adding interactivity is harder and so should be done separately!), 3) think about the minimal representation of UI state that you will need, 4) identify where your state should live (each component can have its own state if it needs it, but it is important to only add state if it is necessary) and 5) add inverse data flow (the ability to update state when the data the user inputs information into the browser).
 
 - [ ] Describe state.
 
+    State is an object where data can be stored in React and represents the parts of the app that can change. State is not shared between components. Each component can have its own state.
+
 - [ ] Describe props.
 
+    Props is short for "properties". Most components are customizable through the use of props, which is an object that contains a slice of read-only state. Props must be passed down the component hierarchy in order to be used properly.
+
 - [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+    Side effects are things that happen outside the scope of the function being executed. Examples inclue: fetching data from an API, timers, and manually manipulating the DOM. You can sync effects in a React component to state or prop changes using the effect hook (`useEffect()`).
 
 ## Project Set Up
 
