@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import StarWarsCard from './components/StarWarsCard';
+import styled from 'styled-components';
+
+const AppDiv = styled.div`
+width: 800px;
+margin: 0 auto;
+`
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -16,14 +22,12 @@ const App = () => {
   useEffect(() => {
     axios.get("https://swapi.co/api/people")
     .then(response => {
-      console.log(response.data);
       setStarWarsChars(response.data.results);
     })
   }, [])  
 
-  console.log(starWarsChars)
   return (
-    <div className="App">
+    <AppDiv className="App">
       <h1 className="Header">React Wars</h1>
 
       {starWarsChars.map(data => (
@@ -33,7 +37,7 @@ const App = () => {
                       key={data.name} />
          ))}
 
-    </div>
+    </AppDiv>
   );
 }
 
