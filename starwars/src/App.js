@@ -17,19 +17,43 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-  const [starWarsChars, setStarWarsChars] = useState([])
+  const [starWarsChars, setStarWarsChars] = useState([]);
+  const [next, setNext] = useState([]);
+  const [previous, setPrevious] = useState([]);
 
   useEffect(() => {
     axios.get("https://swapi.co/api/people")
     .then(response => {
       setStarWarsChars(response.data.results);
+      setNext(response.data.next);
+      setPrevious(response.data.previous);
     })
   }, [])  
 
+function getPrevious(e) {
+    e.preventDefault();
+    axios.get(previous)
+    .then(response => {
+      setStarWarsChars(response.data.results);
+      setNext(response.data.next);
+      setPrevious(response.data.previous);
+    })
+}
+
+function getNext(e) {
+  e.preventDefault();
+    axios.get(next)
+    .then(response => {
+      setStarWarsChars(response.data.results);
+      setNext(response.data.next);
+      setPrevious(response.data.previous);
+    })
+}
+  
   return (
     <AppDiv className="App">
       <h1 className="Header">React Wars</h1>
-
+      <a href="{previous}" onClick={getPrevious}>Previous</a> <a href="{next}" onClick={getNext}>Next</a><br />
       {starWarsChars.map(data => (
         <StarWarsCard name={data.name}
                       height={data.height}
