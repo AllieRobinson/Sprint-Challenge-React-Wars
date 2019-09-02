@@ -9,6 +9,14 @@ width: 800px;
 margin: 0 auto;
 `
 
+const StyledLink = styled.a`
+font-family: monospace;
+font-decoration: none;
+font-size: 1.2rem;
+margin: 0px 170px;
+color: #443e3e;
+`
+
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -53,7 +61,7 @@ function getNext(e) {
   return (
     <AppDiv className="App">
       <h1 className="Header">React Wars</h1>
-      <a href="{previous}" onClick={getPrevious}>Previous</a> <a href="{next}" onClick={getNext}>Next</a><br />
+      <StyledLink href="{previous}" onClick={getPrevious}>Previous</StyledLink> <StyledLink href="{next}" onClick={getNext}>Next</StyledLink><br />
       {starWarsChars.map(data => (
         <StarWarsCard name={data.name}
                       height={data.height}
